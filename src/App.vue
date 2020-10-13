@@ -2,6 +2,7 @@
   <div id="app">
     <h2>Contact List</h2>
     <AddContact
+        ref="addComponent"
         @add-contact="addContact"
     />
     <ContactCards
@@ -39,11 +40,14 @@ export default {
       this.contacts = this.contacts.filter(contact => contact.phone !== phone)
     },
     addContact(contact) {
-      if (this.contacts.includes(contact.phone)) {
+      console.log(contact.phone);
+      if (!this.contacts.some(item => item.phone === contact.phone)) {
         this.contacts.push(contact);
+        console.log("TRUE");
       }
       else {
-
+        console.log("FALSE");
+        this.$refs.addComponent.pushError("The number already exist");
       }
     }
   },

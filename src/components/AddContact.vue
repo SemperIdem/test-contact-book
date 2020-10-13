@@ -14,14 +14,20 @@
   >
     <template v-slot:header>Adding the new contact</template>
     <template v-slot:body>
+      <p v-if="errors.length">
+        <b>Please correct the following error(s):</b>
+      <ul>
+        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+      </ul>
+      </p>
       <div class="inputs">
         <p>Picture:</p>
         <input type="file" ref="inputFile" @change="fileSelected">
-        <p>Name:</p>
+        <p>Name*:</p>
         <input type="text" v-model="name">
         <p>Location:</p>
         <input type="text" v-model="location">
-        <p>Phone Number:</p>
+        <p>Phone Number*:</p>
         <input type="number" v-model="phone">
         <p>Email:</p>
         <input type="text" v-model="email">
@@ -41,6 +47,7 @@ import Modal from "@/components/Modal";
 export default {
   data() {
     return {
+      errors:[],
       url: '',
       name: '',
       location: '',
@@ -67,20 +74,35 @@ name: "AddContact",
       this.url = URL.createObjectURL(file);
     },
     pushContact() {
-      const newContact = {id: Date.now(),
-        name: this.name,
-        location: this.location,
-        phone: this.phone,
-        email: this.email,
-        url: this.url
+      this.errors = [];
+      if (this.name && this.phone) {
+        const newContact = {
+          id: Date.now(),
+          name: this.name,
+          location: this.location,
+          phone: this.phone,
+          email: this.email,
+          url: this.url
+        }
+        this.$emit('add-contact', newContact);
+        this.clearInputs();
       }
-      this.$emit('add-contact', newContact);
+      if(!this.name) this.pushError("Name required.");
+      if(!this.phone) this.pushError("Phone required.");
+    },
+
+    pushError(error) {
+      this.errors.push(error)
+    },
+
+    clearInputs() {
       this.name = '';
       this.phone = '';
       this.email = '';
       this.url = '';
       this.$refs.inputFile.value = null;
-    },
+    }
+
   },
 }
 </script>
