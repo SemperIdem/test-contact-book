@@ -81,7 +81,7 @@ name: "ContactCard",
   }
 
   .btn-group button {
-    background-color: white; /* Green background */
+    background-color: white;
     border-radius: 50%;
     color: gray;
     padding: 10px 24px;
