@@ -23,14 +23,6 @@ export default {
           <slot name="header">
             This is the default tile!
           </slot>
-<!--            <button-->
-<!--                type="button"-->
-<!--                class="btn-close"-->
-<!--                @click="close"-->
-<!--                aria-label="Close modal"-->
-<!--            >-->
-<!--              x-->
-<!--            </button>-->
         </header>
         <section
             class="modal-body"
@@ -99,16 +91,6 @@ export default {
 .modal-body {
   position: relative;
   padding: 20px 10px;
-}
-
-.btn-close {
-  border: none;
-  font-size: 20px;
-  padding: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #4AAE9B;
-  background: transparent;
 }
 
 .btn-green {

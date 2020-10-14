@@ -9,16 +9,16 @@
       />
       <div class="contact-info">
         <h3 class="name">{{ contact.name }}</h3>
-        <span class="location"><font-awesome-icon icon="map-marker" /> {{contact.location}}</span>
+<!--        <span class="location"><font-awesome-icon icon="map-marker" /> {{contact.location}}</span>-->
         <span class="phone"><font-awesome-icon icon="phone" /> {{contact.phone}}</span>
-        <span class="email"><font-awesome-icon icon="at" /> {{contact.email}}</span>
+<!--        <span class="email"><font-awesome-icon icon="at" /> {{contact.email}}</span>-->
       </div>
     </div>
     <div class="btn-group">
-        <button class="description"
+      <button @click="goTodetail()" class="description"
         ><font-awesome-icon icon="info"/></button>
         <button class="remove"
-                v-on:click="$emit('remove-contact', contact.id)"
+                v-on:click="$emit('remove-contact', contact.phone)"
         ><font-awesome-icon icon="trash"/></button>
     </div>
 </li>
@@ -32,8 +32,15 @@ name: "ContactCard",
       type: Object,
       required: true
     },
-    index: Number,
-  }
+  },
+
+  methods: {
+    goTodetail() {
+      console.log('route push');
+      this.$router.push({ name: 'contact', params: {url: this.contact.url, phone: this.contact.phone,
+          location: this.contact.location, name: this.contact.name, email: this.contact.email}})
+    }
+   }
 }
 </script>
 

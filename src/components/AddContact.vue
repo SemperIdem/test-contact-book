@@ -5,7 +5,7 @@
         class="btn"
         @click="showModal"
     >
-      Add new contact
+      Add the new contact
     </button>
   <Modal
       v-show="isModalVisible"
@@ -69,7 +69,6 @@ name: "AddContact",
     },
     fileSelected(evt) {
       evt.preventDefault()
-      console.log(evt);
       const file = evt.target.files[0]
       this.url = URL.createObjectURL(file);
     },
@@ -86,6 +85,7 @@ name: "AddContact",
         }
         this.$emit('add-contact', newContact);
         this.clearInputs();
+        return;
       }
       if(!this.name) this.pushError("Name required.");
       if(!this.phone) this.pushError("Phone required.");

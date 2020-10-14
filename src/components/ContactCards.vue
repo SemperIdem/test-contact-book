@@ -22,8 +22,9 @@ export default {
     ContactCard,
   },
   methods: {
-    removeContact(id) {
-      this.$emit('remove-contact', id)
+    removeContact(phone) {
+      console.log(phone);
+      this.$emit('remove-contact', phone)
     }
   }
 }

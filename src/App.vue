@@ -1,58 +1,11 @@
 <template>
   <div id="app">
-    <h2>Contact List</h2>
-    <AddContact
-        ref="addComponent"
-        @add-contact="addContact"
-    />
-    <ContactCards
-        v-bind:contacts="contacts"
-        @remove-contact="removeContact"
-    />
+    <keep-alive include="Home">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
-<script>
-import ContactCards from "@/components/ContactCards";
-import AddContact from "@/components/AddContact";
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from "@fortawesome/free-solid-svg-icons";
-
-
-library.add(fas);
-
-export default {
-  name: 'App',
-  data() {
-    return {
-      contacts: [
-        {name: 'Vasya Pupkin', location: 'Russia', phone: '777', email: 'ronn@dgkdgk', url: ''},
-        {name: 'Daniel Maduro', location: 'Venezuala', phone: '888', email: 'ronndfdf@dgkdgk', url: ''},
-        {name: 'Shafir Arah', location: 'Israel', phone: '999', email: 'ronn@dgkdgk', url: ''},
-      ],
-    }
-  },
-  components: {
-    ContactCards, AddContact
-  },
-  methods: {
-    removeContact(phone) {
-      this.contacts = this.contacts.filter(contact => contact.phone !== phone)
-    },
-    addContact(contact) {
-      console.log(contact.phone);
-      if (!this.contacts.some(item => item.phone === contact.phone)) {
-        this.contacts.push(contact);
-        console.log("TRUE");
-      }
-      else {
-        console.log("FALSE");
-        this.$refs.addComponent.pushError("The number already exist");
-      }
-    }
-  },
-}
-</script>
 
 <style>
 #app {
