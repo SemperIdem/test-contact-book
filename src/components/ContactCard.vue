@@ -9,9 +9,7 @@
       />
       <div class="contact-info">
         <h3 class="name">{{ contact.name }}</h3>
-<!--        <span class="location"><font-awesome-icon icon="map-marker" /> {{contact.location}}</span>-->
         <span class="phone"><font-awesome-icon icon="phone" /> {{contact.phone}}</span>
-<!--        <span class="email"><font-awesome-icon icon="at" /> {{contact.email}}</span>-->
       </div>
     </div>
     <div class="btn-group">
