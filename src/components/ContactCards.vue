@@ -23,8 +23,9 @@ export default {
   },
   methods: {
     removeContact(phone) {
-      console.log(phone);
-      this.$emit('remove-contact', phone)
+      if(confirm('Delete the number ' + phone + '?')) {
+        this.$emit('remove-contact', phone)
+      }
     }
   }
 }

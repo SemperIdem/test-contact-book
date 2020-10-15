@@ -76,12 +76,10 @@ name: "AddContact",
       this.errors = [];
       if (this.name && this.phone) {
         const newContact = {
-          id: Date.now(),
           name: this.name,
-          location: this.location,
           phone: this.phone,
-          email: this.email,
-          url: this.url
+          url: this.url,
+          details: {},
         }
         this.$emit('add-contact', newContact);
         this.clearInputs();
