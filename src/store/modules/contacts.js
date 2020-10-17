@@ -6,25 +6,25 @@ export default {
         addContact(state, contact) {
             state.contacts.push(contact);
         },
-        removeContact(state, phone) {
-            state.contacts = state.contacts.filter(contact => contact.phone !== phone);
+        removeContact(state, id) {
+            state.contacts = state.contacts.filter(contact => contact.phone !== id);
         },
-        updateContact(state, phone, detail) {
-           const contact =  state.contacts.find(thing => thing.phone === phone);
+        updateContact(state, id, detail) {
+           const contact =  state.contacts.find(thing => thing.phone === id);
            console.log(detail);
            contact[detail.field] = detail.value;
          }
     },
     state: {
-        contacts: [{name: 'Vasya', phone: '7777', url: ''}, {name: 'Rock', phone: '888', url: ''}]
+        contacts: [{id: '1', name: 'Vasya', phone: '7777', url: ''}, {id: '2', name: 'Rock', phone: '888', url: ''}]
     },
     getters: {
         getAllContacts(state) {
             console.log(state.contacts);
             return state.contacts;
         },
-        getContactByPhone: (state) => (phone) => {
-            return state.contacts.find(thing => thing.phone === phone);
+        getContactByPhone: (state) => (id) => {
+            return state.contacts.find(thing => thing.id === id);
         }
     },
 }

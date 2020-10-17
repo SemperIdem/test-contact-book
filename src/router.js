@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from "@/views/Home";
-import ContactCardInfo from "@/views/ContactCardInfo";
+
 
 Vue.use(Router)
 
@@ -14,8 +14,8 @@ export default new Router ({
         },
         {
             name: 'contact',
-            path: '/contact/:phone',
-            component: ContactCardInfo,
+            path: '/contact/:id',
+            component: () => import('./views/ContactCardInfo'),
             props: true
         }
     ]

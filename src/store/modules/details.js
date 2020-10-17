@@ -2,24 +2,24 @@ export default {
     actions: {},
     mutations: {
         addInfo(state, info) {
-            state.info.find(thing => thing.phone === info.phone).list.push(info);
+            state.info.find(thing => thing.id === info.id).list.push(info);
         },
-        removeInfo(state, phone) {
-            state.info = state.info.filter(contact => contact.phone !== phone);
+        removeInfo(state, id) {
+            state.info = state.info.filter(contact => contact.id !== id);
         },
-        // updateInfo(state, info) {
+        // updateInfo(state, detail) {
         //
-        // }
+        //  }
     },
     state: {
-        info: [{phone: '7777', list: []}, {phone: '888', list: []}],
+        info: [{id: '1' ,phone: '7777', list: []}, {id: '2', phone: '888', list: []}],
     },
     getters: {
         getAllInfo(state) {
             return state.info;
         },
-        getInfoByPhone: (state) => (phone) => {
-            return state.info.find(thing => thing.phone === phone).list;
+        getInfoByPhone: (state) => (id) => {
+            return state.info.find(thing => thing.id === id).list;
         }
     },
 }

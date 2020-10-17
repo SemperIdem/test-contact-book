@@ -76,6 +76,7 @@ name: "AddContact",
       this.errors = [];
       if (this.name && this.phone) {
         const newContact = {
+          id: Date.now(),
           name: this.name,
           phone: this.phone,
           url: this.url,

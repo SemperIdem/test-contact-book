@@ -35,7 +35,7 @@ name: "ContactCard",
   methods: {
     goTodetail() {
       console.log('route push');
-      this.$router.push({ name: 'contact', params: {phone: this.contact.phone}})
+      this.$router.push({ name: 'contact', params: {id: this.contact.id}})
     }
    }
 }
