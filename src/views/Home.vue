@@ -27,20 +27,6 @@ name: "Home",
   components: {
     ContactCards, AddContact
   },
-  methods: mapMutations(['addContact', 'removeContact']) //{
-    // removeContact(phone) {
-    //   console.log('remove');
-    //   this.contacts = this.contacts.filter(contact => contact.phone !== phone)
-    // },
-    // addContact(contact) {
-    //   console.log(contact.phone);
-    //   if (!this.contacts.some(item => item.phone === contact.phone)) {
-    //     this.contacts.push(contact);
-    //   }
-    //   else {
-    //     this.$refs.addComponent.pushError("The number already exist");
-    //   }
-    // }
- // },
+  methods: mapMutations(['addContact', 'removeContact'])
 }
 </script>

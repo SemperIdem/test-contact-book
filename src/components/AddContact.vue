@@ -25,12 +25,8 @@
         <input type="file" ref="inputFile" @change="fileSelected">
         <p>Name*:</p>
         <input type="text" v-model="name">
-        <p>Location:</p>
-        <input type="text" v-model="location">
         <p>Phone Number*:</p>
         <input type="number" v-model="phone">
-        <p>Email:</p>
-        <input type="text" v-model="email">
       </div>
     </template>
     <template v-slot:footer>
