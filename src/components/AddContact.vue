@@ -46,9 +46,7 @@ export default {
       errors:[],
       url: '',
       name: '',
-      location: '',
       phone: '',
-      email: '',
       isModalVisible: false,
     }
   },
@@ -75,8 +73,7 @@ name: "AddContact",
           id: Date.now(),
           name: this.name,
           phone: this.phone,
-          url: this.url,
-          details: {},
+          details: [],
         }
         this.$emit('add-contact', newContact);
         this.clearInputs();
