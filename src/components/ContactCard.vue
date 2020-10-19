@@ -5,7 +5,7 @@
           v-if=contact.url :src=contact.url
       />
       <img
-          v-else src="../assets/statham.jpg"
+          v-else src="../assets/default.jpg"
       />
       <div class="contact-info">
         <h3 class="name">{{ contact.name }}</h3>
@@ -16,7 +16,7 @@
       <button @click="goTodetail()" class="description"
         ><font-awesome-icon icon="info"/></button>
         <button class="remove"
-                v-on:click="$emit('remove-contact', contact.phone)"
+                v-on:click="$emit('remove-contact', contact)"
         ><font-awesome-icon icon="trash"/></button>
     </div>
 </li>

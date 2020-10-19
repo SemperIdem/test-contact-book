@@ -1,4 +1,4 @@
-
+import Vue from 'vue'
 
 export default {
     actions: {},
@@ -7,7 +7,8 @@ export default {
             state.push(contact);
         },
         removeContact(state, id) {
-            state.contacts = state.filter(contact => contact.phone !== id);
+            const index = state.findIndex(contact => contact.id === id);
+            Vue.delete(state, index)
         },
         addDetail(state, object) {
             state.find(contact => contact.id === object.id)
@@ -18,11 +19,19 @@ export default {
             currentContact.details  = currentContact
                 .details.filter(itemDetail => itemDetail.field !== detail.field)
         },
-        editDetail(state, {id, newDetail}) {
+        setDetail(state, {id, newDetail}) {
             const currentContact = state.find(contact => contact.id === id);
             const currentDetail = currentContact
                 .details.find(itemDetail => itemDetail.field === newDetail.field);
             currentDetail.value = newDetail.value;
+        },
+        setName(state, {id, newName}) {
+            const currentContact = state.find(contact => contact.id === id);
+            currentContact.name = newName;
+        },
+        setPhone(state, {id, newPhone}) {
+            const currentContact = state.find(contact => contact.id === id);
+            currentContact.phone = newPhone;
         }
     },
     state: [{id: '1', name: 'Vasya', phone: '7777', url: '', details: []},

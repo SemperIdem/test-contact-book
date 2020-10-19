@@ -5,7 +5,7 @@
           v-for="(contact, i) of contacts"
           v-bind:contact="contact"
           v-bind:index="i"
-          v-bind:key='contact.phone'
+          v-bind:key='contact.id'
           v-on:remove-contact="removeContact"
       />
     </ul>
@@ -22,9 +22,9 @@ export default {
     ContactCard,
   },
   methods: {
-    removeContact(phone) {
-      if(confirm('Delete the number ' + phone + '?')) {
-        this.$emit('remove-contact', phone)
+    removeContact(contact) {
+      if(confirm('Delete the number ' + contact.phone + '?')) {
+        this.$emit('remove-contact', contact.id);
       }
     }
   }

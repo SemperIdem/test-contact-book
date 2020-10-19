@@ -6,8 +6,8 @@
       @add-contact="addContact"
   />
   <ContactCards
-      v-bind:contacts=getAllContacts
-      @remove-contact="removeContact"
+      v-bind:contacts="getAllContacts"
+      @remove-contact="deleteContact"
   />
   </div>
 </template>
@@ -27,6 +27,14 @@ name: "Home",
   components: {
     ContactCards, AddContact
   },
-  methods: mapMutations(['addContact', 'removeContact'])
+  methods: {
+    ...mapMutations(['addContact', 'removeContact']),
+
+    deleteContact(id) {
+      console.log(id);
+      this.removeContact(id);
+    }
+  }
+
 }
 </script>

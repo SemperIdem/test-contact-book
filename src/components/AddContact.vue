@@ -5,7 +5,7 @@
         class="btn"
         @click="showModal"
     >
-      Add the new contact
+      New contact
     </button>
   <Modal
       v-show="isModalVisible"
@@ -100,8 +100,22 @@ name: "AddContact",
 </script>
 
 <style scoped>
-.inputs {
-  display: flex;
-  flex-direction: column;
-}
+  .inputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #60a3bc;
+    padding: 20px;
+    border-radius: 50px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+  }
+
+
 </style>
