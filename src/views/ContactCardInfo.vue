@@ -6,16 +6,16 @@
       <h3 v-if="!editingName" @click="enableEditName" class="name">{{contactName}}</h3>
       <div v-if=editingName>
         <input v-model="editingName"/>
-        <button @click="cancelEditName"> Cancel </button>
         <button @click="changeName"> Save </button>
+        <button @click="cancelEditName"> Cancel </button>
       </div>
 
       <span v-if="!this.editingPhone" @click="enableEditPhone()" class="phone"><font-awesome-icon icon="phone" /> {{contactPhone}}</span>
 
       <div v-if=editingPhone>
         <input v-model="editingPhone"/>
-        <button @click="cancelEditPhone"> Cancel </button>
         <button @click="changePhone"> Save </button>
+        <button @click="cancelEditPhone"> Cancel </button>
       </div>
 
       <div class="details" v-for="detail in details" v-bind:key=detail.field>
@@ -27,8 +27,8 @@
         <div v-if="isEditingField(detail)">
           <span>{{detail.field}} : </span>
           <input v-model="isEditingField(detail).value"/>
-          <button @click="cancelEdit(detail)"> Cancel </button>
           <button @click="changeValue(detail)"> Save </button>
+          <button @click="cancelEdit(detail)"> Cancel </button>
         </div>
       </div>
       <div class="form-group" v-for="(input, index) in inputs" v-bind:key=index >
