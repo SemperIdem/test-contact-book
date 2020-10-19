@@ -113,6 +113,7 @@ name: "AddContact",
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
+    margin-bottom: 20px;
   }
 
 
