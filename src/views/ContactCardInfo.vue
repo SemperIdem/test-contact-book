@@ -1,11 +1,7 @@
 <template>
   <div class="contact">
     <div class="contact-info">
-    <img
-          v-if=contactUrl :src=contactUrl
-      />
-     <img
-          v-else src="../assets/default.jpg" />
+     <img src="../assets/default.jpg" />
 
       <h3 v-if="!editingName" @click="enableEditName" class="name">{{contactName}}</h3>
       <div v-if=editingName>

@@ -2,10 +2,7 @@
 <li>
     <div class="contact">
       <img
-          v-if=contact.url :src=contact.url
-      />
-      <img
-          v-else src="../assets/default.jpg"
+          src="../assets/default.jpg"
       />
       <div class="contact-info">
         <h3 class="name">{{ contact.name }}</h3>

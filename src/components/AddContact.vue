@@ -21,8 +21,6 @@
       </ul>
       </p>
       <div class="inputs">
-        <p>Picture:</p>
-        <input type="file" ref="inputFile" @change="fileSelected">
         <p>Name*:</p>
         <input type="text" v-model="name">
         <p>Phone Number*:</p>
